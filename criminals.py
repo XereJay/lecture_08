@@ -1,7 +1,5 @@
 import json
 
-
-
 def main():
     with open("new_criminals.json", "r") as data_file:
         new_criminals = json.load(data_file)
@@ -26,6 +24,15 @@ def main():
     origin = {
     "Mexico": {"Manuel Noriega", "Pablo Escobar", "Joaqim Guzmán", "Ismael Garcia"},
     "Columbia": {"Rick Ross", "William Jardine"}}
+
+    def get_production(state: str, origin_of_criminals, criminals):
+        total_production = 0
+        for name in origin_of_criminals[state]:
+            total_production += sum(criminals[name])
+        return total_production
+
+
+    print(get_production("Columbia", origin, most_wanted))
 
 
 
